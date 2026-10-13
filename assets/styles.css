@@ -1,0 +1,98 @@
+/* Change these three colors to adjust the personal palette. */
+:root {
+  --olive: #3b7d25;
+  --gsu-blue: #0039a6;
+  --sdu-red: #9c0c13;
+  --text: #222222;
+  --secondary-text: #555555;
+}
+
+* { box-sizing: border-box; }
+html { color-scheme: light; scroll-padding-top: 24px; }
+body {
+  margin: 0;
+  background: #ffffff;
+  color: var(--text);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+.page { max-width: 900px; margin: 55px auto 75px; padding: 0 30px; }
+h1, h2, h3, p { margin: 0; }
+h1 { font-size: 36px; line-height: 1.25; font-weight: 400; }
+h2 { margin-bottom: 18px; color: var(--olive); font-size: 25px; line-height: 1.35; font-weight: 400; }
+h3 { margin: 24px 0 12px; font-size: 19px; font-weight: 600; }
+p + p { margin-top: 16px; }
+a { color: var(--gsu-blue); text-decoration-line: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:visited { color: var(--sdu-red); }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible { outline: 2px solid var(--gsu-blue); outline-offset: 4px; }
+nav { display: flex; flex-wrap: wrap; gap: 4px 26px; margin-top: 12px; }
+nav a { display: inline-flex; align-items: center; min-height: 40px; font-size: 16px; }
+.introduction { display: grid; grid-template-columns: minmax(0, 1fr) 220px; align-items: start; gap: 32px; margin-top: 26px; }
+.introduction-copy { min-width: 0; }
+.portrait { display: block; width: 220px; height: 275px; object-fit: cover; object-position: 32% 50%; }
+section { margin-top: 42px; }
+ul, ol { margin: 0; padding-left: 25px; }
+.papers li { padding-left: 5px; margin-bottom: 22px; }
+.papers li:last-child { margin-bottom: 0; }
+.paper-title { font-weight: 600; }
+.paper-links { white-space: nowrap; }
+.teaching { margin-top: 12px; }
+.teaching li { padding-left: 3px; margin-bottom: 8px; }
+.talks li { padding-left: 3px; margin-bottom: 18px; }
+.talk-detail { color: var(--secondary-text); }
+.math { font-style: italic; white-space: nowrap; }
+.skip-link { position: absolute; top: -100px; left: 16px; background: #fff; padding: 6px 12px; }
+.skip-link:focus { top: 10px; }
+
+@media (max-width: 720px) {
+  .introduction { grid-template-columns: minmax(0, 1fr); gap: 26px; }
+  .portrait { order: -1; justify-self: center; width: 208px; height: 260px; max-width: 100%; }
+}
+
+@media (max-width: 600px) {
+  body { font-size: 16px; }
+  .page { margin: 30px auto 45px; padding: 0 20px; }
+  h1 { font-size: 32px; }
+  h2 { font-size: 23px; }
+  h3 { font-size: 18px; }
+  nav { gap: 3px 22px; }
+  nav a { min-height: 44px; }
+  section { margin-top: 34px; }
+  ul, ol { padding-left: 22px; }
+  .papers li { padding-left: 2px; }
+}
+
+@media print {
+  .page { max-width: none; margin: 0; padding: 0; }
+  body { font-size: 11pt; }
+  nav, .skip-link { display: none; }
+  .introduction { grid-template-columns: minmax(0, 1fr) 150px; gap: 24px; }
+  .portrait { order: 0; width: 150px; height: 187.5px; }
+  a, a:visited { color: var(--text); }
+  h2, h3 { break-after: avoid; }
+  li { break-inside: avoid; }
+}
+
+/* Shared navigation for the separate static pages. */
+.site-name { display: block; margin: 0; font-size: 36px; line-height: 1.25; font-weight: 400; }
+.site-name, .site-name:link, .site-name:visited, .site-name:hover, .site-name:active, .site-name:focus { color: var(--text); text-decoration: none; }
+.site-nav { gap: 4px 28px; margin-top: 20px; border-bottom: 1px solid #dddddd; }
+.site-nav a { min-height: 44px; padding: 4px 0 10px; margin-bottom: -1px; border-bottom: 2px solid transparent; text-decoration: none; }
+.site-nav a, .site-nav a:visited, .site-nav a:hover, .site-nav a:active, .site-nav a:focus { color: var(--olive); }
+.site-nav a[aria-current="page"] { border-bottom-color: var(--olive); font-weight: 600; }
+.page-content > section { margin-top: 30px; }
+.page-title { margin-bottom: 22px; color: var(--olive); font-size: 28px; line-height: 1.35; font-weight: 400; }
+@media (max-width: 600px) {
+  .site-name { font-size: 32px; }
+  .site-nav { gap: 2px 21px; margin-top: 16px; }
+  .page-title { font-size: 25px; }
+}
+@media print { .site-nav { display: none; } }
+
+.paper-group { margin: 24px 0 12px; color: var(--text); font-size: 19px; font-weight: 600; }
+@media (max-width: 600px) { .paper-group { font-size: 18px; } }
+
+.coauthor-count { white-space: nowrap; }
